@@ -2,7 +2,7 @@ const http = require('http');
 const querystring = require('querystring');
 const discord = require('discord.js');
 //const client = new discord.Client();
-const noticeChannelId = [786526388836368404];
+//const noticeChannelId = [786526388836368404];
 const Commando = require('discord.js-commando');
 
 const cmd = require('discord.js-commando');
@@ -17,6 +17,7 @@ client.registry
     .registerDefaultTypes()
     .registerGroups([
         ['utils', 'Utility'],
+        ['fun', 'Fun'],
     ])
     .registerDefaultGroups()
     .registerDefaultCommands()
