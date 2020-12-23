@@ -57,7 +57,7 @@ http.createServer(function(req, res){
   }
 }).listen(3000);
 
-client.login("Nzg2NDkzNTI5NjM5NzQ3NTk1.X9HNLQ.ovRhxvpkCLBzUVROkPw72dy_Q1I");
+client.login( process.env.DISCORD_BOT_TOKEN );
 
 client.on('ready', message =>{
   console.log('Bot準備完了～');
@@ -250,7 +250,7 @@ if(process.env.DISCORD_BOT_TOKEN == undefined){
  process.exit(0);
 }
 
-client.login( process.env.DISCORD_BOT_TOKEN );
+
 
 function sendReply(message, text){
   message.reply(text)
