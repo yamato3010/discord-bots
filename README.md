@@ -1,8 +1,5 @@
-# DiscordBotBase
+# MiyuBot
 
-GlitchでDiscordBotを作るためのベースです。
+私の友人が運営しているディスコードサーバーのために作ったBOTです。
 
-
-## 詳細
-
-[誰でも作れる！Discord Bot（基礎編）](https://note.com/exteoi/n/nf1c37cb26c41)をお読みください。
+https://discord.gg/jnQPxtcJ

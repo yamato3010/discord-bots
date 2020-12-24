@@ -1,7 +1,6 @@
 const http = require('http');
 const querystring = require('querystring');
 const {discord,RichEmbed} = require('discord.js');
-const { Menu } = require('discord.js-menu');
 //const Discord = require('discord.js');
 //const client = new discord.Client();
 //const noticeChannelId = [786526388836368404];
@@ -26,7 +25,7 @@ client.registry
 
 
 client.on('ready', () => {
-  console.log(`Logged in as ${client.user.tag}!`);
+  console.log(`${client.user.tag}としてログインしました`);
   client.user.setActivity(config.activity);
 });
 
@@ -44,7 +43,7 @@ http.createServer(function(req, res){
       var dataObject = querystring.parse(data);
       console.log("post:" + dataObject.type);
       if(dataObject.type == "wake"){
-        console.log("Woke up in post");
+        console.log("はっ！寝てしまうところでした...");
         res.end();
         return;
       }
@@ -60,7 +59,7 @@ http.createServer(function(req, res){
 client.login( process.env.DISCORD_BOT_TOKEN );
 
 client.on('ready', message =>{
-  console.log('Bot準備完了～');
+  console.log('Bot準備完了～お仕事、がんばりますっ！');
   //client.user.setPresence({ game: { name: '!m | 精一杯ご奉仕いたしますね♪' } });
 });
 
@@ -69,6 +68,7 @@ client.on('ready', message =>{
 let statuses = [
     {game: {name: `コマンドがわからなくなったら!m helpですっ`}, type: "WATCHING"},
     {game: {name: `精一杯ご奉仕いたしますね♪`}, type: "PLAYING"},
+    //{game: {name: `このサーバーには現在${client.users.size}人います。`}, type: "PLAYING"},
     //{game: {name: `お仕えさせていただきます！`}, type: "PLAYING"}
 ];
 // Our pointer
@@ -183,43 +183,7 @@ if (message.content==="!d bump"){
   };
   }
 
-  if (message.content === "!help") {
-    // Provide a menu with a channel, an author ID to let control the menu, and an array of menu pages.
-    let helpMenu = new Menu(message.channel, message.author.id, [
-        // Each object in this array is a unique page.
-        {
-            // A page object consists of a name, used as a destination by reactions...
-            name: 'main',
-            // A MessageEmbed to actually send in chat, and...
-            content: new RichEmbed({
-                title: 'Help Menu',
-                description: 'This is some helpful info!'
-            }),
-            // A set of reactions with destination names attached.
-            // Note there's also special destination names (read below)
-            reactions: {
-                '⏹': 'delete',
-                '▶': 'extra'
-            }
-        },
-        {
-            name: 'extra',
-            content: new RichEmbed({
-                title: 'Extra menu',
-                description: 'This is another page. You can have as many of these as you want.'
-            }),
-            reactions: {
-                '◀': 'first'
-            }
-        }
-        // The last parameter is the number of milliseconds you want the menu to collect reactions for each page before it stops to save resources
-        // The timer is reset when a user interacts with the menu.
-        // This is optional, and defaults to 180000 (3 minutes).
-    ], 300000)
-    // Run Menu.start() when you're ready to send the menu in chat.
-    // Once sent, the menu will automatically handle everything else.
-    helpMenu.start()
-}
+  
   
 });
 

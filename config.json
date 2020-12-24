@@ -1,6 +1,5 @@
 {
-
-  "token": "put in bot token",
+  "token": "",
   "activity": "game",
   "prefix": "!m"
   
